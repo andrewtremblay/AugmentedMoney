@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+    <Tracking>
+        <ImageTarget size="1 0.436702" name="OneDollar_Obverse"/>
+        <ImageTarget size="1 0.444555" name="OneDollar_Reverse"/>
+        <ImageTarget size="1 0.423952" name="FiveDollars_Obverse"/>
+        <ImageTarget size="1 0.426443" name="FiveDollars_Reverse"/>
+        <ImageTarget size="1 0.423051" name="TenDollars_Obverse"/>
+        <ImageTarget size="1 0.420561" name="TenDollars_Reverse"/>
+        <ImageTarget size="1 0.426962" name="TwentyDollars_Obverse"/>
+        <ImageTarget size="1 0.424906" name="TwentyDollars_Reverse"/>
+        <ImageTarget size="1 0.428037" name="FiftyDollars_Obverse"/>
+        <ImageTarget size="1 0.413084" name="FiftyDollars_Reverse"/>
+        <ImageTarget size="1 0.422442" name="OneHundredDollars_Obverse"/>
+        <ImageTarget size="1 0.421212" name="OneHundredDollars_Reverse"/>
+    </Tracking>
+</QCARConfig>
