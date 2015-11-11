@@ -144,7 +144,7 @@ public class VirtualButtonEditor : Editor
         }
 
         // If the texture is null we simply assign a default material
-        vb.renderer.sharedMaterial = referenceMaterial;
+        vb.GetComponent<Renderer>().sharedMaterial = referenceMaterial;
 
         // Cleanup assets that have been created temporarily.
         EditorUtility.UnloadUnusedAssets();

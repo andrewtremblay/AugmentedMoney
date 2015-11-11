@@ -198,8 +198,8 @@ public class QCARBehaviour : MonoBehaviour
 
         // Cache the camera start values
         mCachedDrawVideoBackground = QCARManager.Instance.DrawVideoBackground;
-        mCachedCameraClearFlags = this.camera.clearFlags;
-        mCachedCameraBackgroundColor = this.camera.backgroundColor;
+        mCachedCameraClearFlags = this.GetComponent<Camera>().clearFlags;
+        mCachedCameraBackgroundColor = this.GetComponent<Camera>().backgroundColor;
 
         // Reset the camera clear flags and create a simple material
         ResetCameraClearFlags();
@@ -229,7 +229,7 @@ public class QCARBehaviour : MonoBehaviour
         // Initialize the QCARManager
         QCARManager.Instance.WorldCenterMode = mWorldCenterMode;
         QCARManager.Instance.WorldCenter = mWorldCenter;
-        QCARManager.Instance.ARCamera = camera;
+        QCARManager.Instance.ARCamera = GetComponent<Camera>();
         QCARManager.Instance.Init();
 
         // Initialize local variables
@@ -420,8 +420,8 @@ public class QCARBehaviour : MonoBehaviour
         mClearBuffers = 12;
 
         // Restore clear settings to Inspector values
-        this.camera.clearFlags = mCachedCameraClearFlags;
-        this.camera.backgroundColor = mCachedCameraBackgroundColor;
+        this.GetComponent<Camera>().clearFlags = mCachedCameraClearFlags;
+        this.GetComponent<Camera>().backgroundColor = mCachedCameraBackgroundColor;
     }
 
 
@@ -450,8 +450,8 @@ public class QCARBehaviour : MonoBehaviour
                     // Camera clears both depth and color buffer,
                     // We set the clear color to transparent black as
                     // required by QCAR.
-                    this.camera.clearFlags = CameraClearFlags.SolidColor;
-                    this.camera.backgroundColor = new Color(0, 0, 0, 0);
+                    this.GetComponent<Camera>().clearFlags = CameraClearFlags.SolidColor;
+                    this.GetComponent<Camera>().backgroundColor = new Color(0, 0, 0, 0);
                     Debug.Log("Setting camera clear flags to transparent black");
                 }
                 else
@@ -460,14 +460,14 @@ public class QCARBehaviour : MonoBehaviour
                     if (mCachedDrawVideoBackground)
                     {
                         // Clear only depth
-                        this.camera.clearFlags = CameraClearFlags.Depth;
+                        this.GetComponent<Camera>().clearFlags = CameraClearFlags.Depth;
                         Debug.Log("Setting camera clear flags to depth only");
                     }
                     else
                     {
                         // Restore clear settings to Inspector values
-                        this.camera.clearFlags = mCachedCameraClearFlags;
-                        this.camera.backgroundColor = mCachedCameraBackgroundColor;
+                        this.GetComponent<Camera>().clearFlags = mCachedCameraClearFlags;
+                        this.GetComponent<Camera>().backgroundColor = mCachedCameraBackgroundColor;
                         Debug.Log("Setting camera clear flags to Inspector values");
                     }
                 }
@@ -552,8 +552,8 @@ public class QCARBehaviour : MonoBehaviour
         // update. It is used to counter rotate the poses later.
         mProjectionOrientation = orientation;
 
-        Matrix4x4 projectionMatrix = QCAR.GetProjectionGL(camera.nearClipPlane,
-                                    camera.farClipPlane, mProjectionOrientation);
+        Matrix4x4 projectionMatrix = QCAR.GetProjectionGL(GetComponent<Camera>().nearClipPlane,
+                                    GetComponent<Camera>().farClipPlane, mProjectionOrientation);
 
         if (mViewportRect.width != Screen.width)
         {
@@ -567,7 +567,7 @@ public class QCARBehaviour : MonoBehaviour
             projectionMatrix[5] *= viewportDistort;
         }
 
-        this.camera.projectionMatrix = projectionMatrix;
+        this.GetComponent<Camera>().projectionMatrix = projectionMatrix;
     }
 
     #endregion // PRIVATE_METHODS

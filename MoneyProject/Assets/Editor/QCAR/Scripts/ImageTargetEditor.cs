@@ -91,7 +91,7 @@ public class ImageTargetEditor : Editor
         if (targetTexture == null)
         {
             // If the texture is null we simply assign a default material.
-            it.renderer.sharedMaterial = referenceMaterial;
+            it.GetComponent<Renderer>().sharedMaterial = referenceMaterial;
             return;
         }
 
@@ -102,7 +102,7 @@ public class ImageTargetEditor : Editor
         materialForTargetTexture.name = targetTexture.name + "Material";
         materialForTargetTexture.mainTextureScale = new Vector2(1, 1);
 
-        it.renderer.sharedMaterial = materialForTargetTexture;
+        it.GetComponent<Renderer>().sharedMaterial = materialForTargetTexture;
 
         // Cleanup assets that have been created temporarily.
         EditorUtility.UnloadUnusedAssets();

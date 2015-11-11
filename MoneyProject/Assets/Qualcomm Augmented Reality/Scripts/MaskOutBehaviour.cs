@@ -21,7 +21,7 @@ public class MaskOutBehaviour : MonoBehaviour
 
     void Start ()
     {
-        this.renderer.sharedMaterial = maskMaterial;
+        this.GetComponent<Renderer>().sharedMaterial = maskMaterial;
     }
 
     #endregion // UNITY_MONOBEHAVIOUR_METHODS

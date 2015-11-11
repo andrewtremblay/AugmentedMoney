@@ -270,7 +270,7 @@ public class MultiTargetEditor : Editor
         if (targetTexture == null)
         {
             // If the texture is null we simply assign a default material
-            go.renderer.sharedMaterial = referenceMaterial;
+            go.GetComponent<Renderer>().sharedMaterial = referenceMaterial;
             return;
         }
 
@@ -280,7 +280,7 @@ public class MultiTargetEditor : Editor
         materialForTargetTexture.name = targetTexture.name + "Material";
         materialForTargetTexture.mainTextureScale = new Vector2(-1, -1);
 
-        go.renderer.sharedMaterial = materialForTargetTexture;
+        go.GetComponent<Renderer>().sharedMaterial = materialForTargetTexture;
 
         // Cleanup assets that have been created temporarily.
         EditorUtility.UnloadUnusedAssets();
